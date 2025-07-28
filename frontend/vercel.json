@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "legaleasier.org" }
+      ],
+      "destination": "https://www.legaleasier.org/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "http://legaleasier.org" }
+      ],
+      "destination": "https://www.legaleasier.org/:path*",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    { 
+      "source": "/:path*", 
+      "destination": "/index.html" 
+    }
+  ]
+}

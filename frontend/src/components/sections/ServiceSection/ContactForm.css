@@ -1,0 +1,116 @@
+.contact-form {
+  width: 100%;
+  min-height: 70vh;
+  background-image: url("https://www.sispnhost.com/apps-for-steps/wp-content/uploads/2025/05/360_F_1134397772_1lkXCDJivhb2gVsSSYoMyMwYPiWgnvUg.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  gap: 20px;
+}
+.services-submit-btn {
+  width: 250px;
+  color: white;
+  border: 0;
+  height: 50px;
+  background-color:rgb(45, 105, 194);
+}
+
+.contact-form-info,
+.contact-application {
+  flex: 1 1 400px;
+  color: white;
+  padding: 20px;
+}
+
+.contact-form-info h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.contact-application form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-application input,
+.contact-application textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+label {
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .contact-form {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-form-info,
+  .contact-application {
+    width: 100%;
+    max-width: 500px;
+  }
+  .contact-application label {
+    text-align: start;
+  }
+
+  .contact-form-info h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width:560px) {
+  .contact-form-info {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 20px;
+  }
+  .contact-application form input {
+    width: 300px;
+  }
+  .contact-application form textarea {
+    width: 300px;
+  }
+  .contact-application {
+    padding: 0;
+  }
+}
+@media (max-width:320px) {
+    .contact-form-info a{
+      font-size: 18px;
+    }
+    .contact-application form input {
+      width: 250px;
+    }
+    .contact-application form textarea {
+      width: 250px;
+    }
+}
