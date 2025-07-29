@@ -14,4 +14,9 @@ const routes = createBrowserRouter([
 ])
 
 
-export default <RouterProvider router={routes}/>;
+const Router = () => {
+    return (
+        <RouterProvider router={routes}/>
+    )
+}
+export default Router;
