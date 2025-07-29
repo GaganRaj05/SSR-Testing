@@ -1,22 +1,13 @@
-// middleware.js (Edge Middleware)
-import { readFileSync } from 'fs';
-import path from 'path';
-
-const manifest = JSON.parse(
-  readFileSync(path.join(process.cwd(), '.vite/manifest.json'), 'utf-8')
-);
-
-const entryFile = manifest['src/main.jsx'].file;
+import entry from './entry-file.json'; // this works because it's a static JSON file
 
 export const config = {
-  matcher: ['/about', '/', '/services'], // paths you want SEO injected
-}
+  matcher: ['/', '/about', '/services'],
+};
 
 export default async function middleware(request) {
-  const url = new URL(request.url)
-  const pathname = url.pathname
+  const url = new URL(request.url);
+  const pathname = url.pathname;
 
-  // Simple SEO map
   const seoMap = {
     '/': {
       title: 'Home - My Vite App',
@@ -30,14 +21,13 @@ export default async function middleware(request) {
       title: 'Services - My Vite App',
       description: 'What we offer.',
     },
-  }
+  };
 
   const seo = seoMap[pathname] || {
     title: 'My Vite App',
     description: 'Default description',
-  }
+  };
 
-  // Basic HTML template with dynamic SEO
   const html = `
     <!DOCTYPE html>
     <html lang="en">
@@ -50,14 +40,12 @@ export default async function middleware(request) {
       </head>
       <body>
         <div id="root"></div>
-<script type="module" src="/${entryFile}"></script>
+        <script type="module" src="/${entry}"></script>
       </body>
     </html>
-  `
+  `;
 
   return new Response(html, {
-    headers: {
-      'Content-Type': 'text/html',
-    },
-  })
+    headers: { 'Content-Type': 'text/html' },
+  });
 }
