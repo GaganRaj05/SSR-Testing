@@ -1,4 +1,13 @@
 // middleware.js (Edge Middleware)
+import { readFileSync } from 'fs';
+import path from 'path';
+
+const manifest = JSON.parse(
+  readFileSync(path.join(process.cwd(), '.vite/manifest.json'), 'utf-8')
+);
+
+const entryFile = manifest['src/main.jsx'].file;
+
 export const config = {
   matcher: ['/about', '/', '/services'], // paths you want SEO injected
 }
@@ -41,7 +50,7 @@ export default async function middleware(request) {
       </head>
       <body>
         <div id="root"></div>
-        <script type="module" src="/assets/index-BMnKHZty"></script>
+<script type="module" src="/${entryFile}"></script>
       </body>
     </html>
   `
