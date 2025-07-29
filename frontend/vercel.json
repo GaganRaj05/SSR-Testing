@@ -1,9 +1,4 @@
 {
-  "middleware": {
-    "middleware.js": {
-      "path": "/(.*)"
-    }
-  },
   "rewrites": [
     {
       "source": "/(.*)",
